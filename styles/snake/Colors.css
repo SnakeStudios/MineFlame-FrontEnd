@@ -1,0 +1,22 @@
+html.color-theme-in-transition,
+html.color-theme-in-transition *,
+html.color-theme-in-transition *:before,
+html.color-theme-in-transition *:after {
+    transition: all 750ms !important;
+    transition-delay: 0s !important;
+}
+
+html {
+
+    /*Snake Theme Things*/
+    --bgColor: #ECECEC;
+
+    --navColor: #00a8ff;
+    --navShadowColor: #0093de;
+
+}
+
+html[data-theme="dark"] {
+
+    /*Snake Theme Things*/
+}

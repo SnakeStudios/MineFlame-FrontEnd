@@ -1,0 +1,28 @@
+/* Footer fix */
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--navShadowColor);
+}
+
+.footer-link {
+    color: #16a085;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #2ecc71;
+    text-decoration: none;
+}
+
+#content-wrap {
+    padding-bottom: 60px;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+
+    background-color: var(--bgColor);
+}
