@@ -17,7 +17,7 @@ export default () => {
     function signUp() {
         if (password !== passwordConfirm) return;
 
-        fetch("http://181.230.20.195:6060/auth/register", {
+        fetch("https://api.isnakebuzz.com/mineflame/auth/register", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

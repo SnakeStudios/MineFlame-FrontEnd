@@ -13,7 +13,7 @@ export default () => {
 
     function login() {
         console.log(ga)
-        fetch("http://181.230.20.195:6060/auth/login", {
+        fetch("https://api.isnakebuzz.com/mineflame/auth/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
