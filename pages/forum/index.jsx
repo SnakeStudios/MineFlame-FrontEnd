@@ -1,24 +1,20 @@
 import {userRouter} from 'next/router';
-import NavBar from "../../Components/NavBar";
+import NavBar from "../../Components/Navbar/NavBar";
 import Footer from "../../Components/Footer";
+import MLayout from "../../Components/MLayout";
+import isAuth from "../../Components/Auth/isAuth";
 
-export default () => {
+export default isAuth(({session}) => {
     return (
         <>
-            <div id="page-container">
-                <NavBar/>
-
-
-                <main className="mainBg text-center" id="content-wrap">
-                    Forum Page
+            <MLayout isAuth={session}>
+                <main className="text-center mt-3">
+                    Forum page
                 </main>
-
-
-                <Footer/>
-            </div>
+            </MLayout>
         </>
     );
-}
+});
 
 /**
  * Created by iSnakeBuzz_ at 09/10/2020

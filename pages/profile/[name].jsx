@@ -1,5 +1,5 @@
 import {useRouter} from 'next/router';
-import NavBar from "../../Components/NavBar";
+import NavBar from "../../Components/Navbar/NavBar";
 import Footer from "../../Components/Footer";
 
 export default () => {

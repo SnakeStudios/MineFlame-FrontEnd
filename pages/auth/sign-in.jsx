@@ -1,19 +1,23 @@
 import React, {useState} from 'react';
-import NavBar from "../../Components/NavBar";
+import withPublicRoute from "../../Components/Auth/withPublicRoute";
+
+import NavBar from "../../Components/Navbar/NavBar";
 import Footer from "../../Components/Footer";
 import {TextField, Button} from "@material-ui/core"
 import Link from "next/link"
 import ReCAPTCHA from "react-google-recaptcha";
+import {getAPI} from '../../Components/Utils/EndPoints';
+import cookieCutter from 'cookie-cutter'
+import MLayout from "../../Components/MLayout";
 
-export default () => {
+export default withPublicRoute(({session}) => {
     const [password, setPassword] = useState(undefined);
     const [email, setEmail] = useState(undefined);
     const [ga, setGa] = useState("none");
 
-
     function login() {
         console.log(ga)
-        fetch("https://api.isnakebuzz.com/mineflame/auth/login", {
+        fetch(getAPI() + "auth/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -24,16 +28,29 @@ export default () => {
                 }
             })
         }).then(value => value.json()).then(res => {
-            console.log(res);
+            console.log(res)
+            if (res.token) {
+                let date = new Date();
+                cookieCutter.set('session', JSON.stringify(res), {
+                    expires: new Date(date.getFullYear() + 1, date.getMonth(), date.getDay()),
+                    path: '/'
+                })
+
+                setTimeout(() => {
+                    // window.location.reload();
+                }, 1000 * 5);
+            } else {
+
+            }
+        }).catch(reason => {
+            console.log("error", reason)
         })
     }
 
     return (
         <>
-            <div id="page-container">
-                <NavBar/>
-
-                <main className="auth-layout mainBg" id="content-wrap">
+            <MLayout isAuth={session}>
+                <main className="auth-layout">
 
                     <div className="auth-box">
                         <h1 className="text-left w-100 ">Sign in</h1>
@@ -62,11 +79,8 @@ export default () => {
                         </Link>
 
                     </div>
-
-                    <Footer/>
                 </main>
-
-            </div>
+            </MLayout>
 
             <style jsx>{`
                 h1 {
@@ -77,7 +91,7 @@ export default () => {
 
         </>
     );
-}
+});
 
 /**
  * Created by iSnakeBuzz_ at 09/10/2020

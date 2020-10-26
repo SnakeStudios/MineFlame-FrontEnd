@@ -33,24 +33,18 @@ export default function MyApp(props) {
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
                 <meta name="description" content="Join to mineflame network using mc.mineflame.net"/>
 
-                {/*<meta property="og:url" content="https://www.mineflame.net/"/>
+                <meta name="theme-color" content="#EA3727"/>
+                <meta name="google" content="notranslate"/>
+
+                <meta property="og:url" content="https://www.mineflame.net/"/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:title" content="MineFlame Network"/>
                 <meta property="og:image" content="https://i.imgur.com/CvcYSb4.png"/>
                 <meta property="og:image:alt" content="MineFlame with fire in the background"/>
-                <meta property="og:description" content="Join to mineflame network using mc.mineflame.net"/>
+                <meta property="og:description" content="Join to MineFlame Network using play.mineflame.net"/>
                 <meta property="og:site_name" content="MineFlame Network"/>
                 <meta property="og:locale" content="en_US"/>
-                <meta property="article:author" content="iSnakeBuzz_"/>*/}
-
-
-                <meta property="og:type" content="video.other"/>
-                <meta property="og:video:url" content="https://www.youtube.com/embed/EPBjMSFvAHw"/>
-                <meta property="og:video:secure_url" content="https://www.youtube.com/embed/EPBjMSFvAHw"/>
-                <meta property="og:video:type" content="text/html"/>
-                <meta property="og:video:width" content="1280"/>
-                <meta property="og:video:height" content="720"/>
-
+                <meta property="article:author" content="iSnakeBuzz_"/>
             </Head>
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

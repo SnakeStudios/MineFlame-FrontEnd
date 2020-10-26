@@ -2,21 +2,22 @@ import React from 'react';
 import Router from 'next/router';
 import Cookies from 'universal-cookie';
 
-const login = '/auth/sign-in?redirected=true'; // Define your login route address.
+const login = '/'; // Define your login route address.
 
 /**
  * Check user authentication and authorization
  * It depends on you and your auth service provider.
- * @returns {{auth: null}}
+ * @returns {{auth: boolean}}
  */
 const checkUserAuthentication = (cookieString) => {
     const cookies = new Cookies(cookieString);
     let session = cookies.get("session");
-    return {auth: session, session: {session: session, debug: false}};
-
+    let logged = (typeof session === 'undefined');
+    /*console.log(session, logged)*/
+    return {auth: logged, session:{session: session, debug: false}};
 };
 
-export default function withPrivateRoute(WrappedComponent) {
+export default function withPublicRoute(WrappedComponent) {
     const hocComponent = ({...props}) => <WrappedComponent {...props} />;
 
     hocComponent.getInitialProps = async ({req, res}) => {
@@ -40,6 +41,7 @@ export default function withPrivateRoute(WrappedComponent) {
 
         return userAuth;
     };
+
 
     return hocComponent;
 };

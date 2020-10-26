@@ -2,14 +2,14 @@ import {userRouter} from 'next/router';
 import NavBar from "../../Components/Navbar/NavBar";
 import Footer from "../../Components/Footer";
 import MLayout from "../../Components/MLayout";
-import withPrivateRoute from "../../Components/Auth/withPrivateRoute";
+import isAuth from "../../Components/Auth/isAuth";
 
-export default withPrivateRoute(({session}) => {
+export default isAuth(({session}) => {
     return (
         <>
             <MLayout isAuth={session}>
-                <main>
-                    My profile
+                <main className="text-center mt-3">
+                    Help page
                 </main>
             </MLayout>
         </>
@@ -17,5 +17,5 @@ export default withPrivateRoute(({session}) => {
 });
 
 /**
- * Created by iSnakeBuzz_ at 10/10/2020
+ * Created by iSnakeBuzz_ at 09/10/2020
  */

@@ -1,19 +1,15 @@
 import React from 'react';
 
-import {makeStyles} from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import {Link, Button, Hidden} from "@material-ui/core";
 import Link2 from "next/link";
 import NavMenu from "./NavMenu";
 
-const classes = makeStyles((theme) => ({
-    root: {
-        color: "#fff"
-    }
-}));
+import Logged from "./Logged";
+import LoggedOut from "./LoggedOut";
 
-export default () => {
+export default function NavBar({isAuth}) {
 
     const [state, setState] = React.useState({
         openedMenu: false
@@ -24,6 +20,8 @@ export default () => {
             openedMenu: bol
         });
     };
+
+    console.log("[NavBar] isAuth:", isAuth)
 
     return (
         <>
@@ -39,7 +37,8 @@ export default () => {
                                     <div>PLAYING</div>
                                 </div>
                                 <div className="col col-lg-7">
-                                    <img className="" src="/images/mineflame.logo.svg" alt="MineFlame Logo" height="150px"/>
+                                    <img className="" src="/images/mineflame.logo.svg" alt="MineFlame Logo"
+                                         height="150px"/>
                                 </div>
                                 <div className="col col-auto my-auto">
                                     <div className="font-weight-bold playersWeight">14,857</div>
@@ -106,9 +105,7 @@ export default () => {
 
 
                         <div className="col col-auto ml-auto">
-                            <Link2 href={"/auth/sign-in"} passHref>
-                                <Button className="text-white">LOGIN</Button>
-                            </Link2>
+                            {isAuth.session ? (<Logged isAuth={isAuth}/>) : (<LoggedOut/>)}
                         </div>
 
                     </div>
@@ -126,6 +123,7 @@ export default () => {
         </>
     );
 }
+
 
 /**
  * Created by iSnakeBuzz_ at 08/10/2020

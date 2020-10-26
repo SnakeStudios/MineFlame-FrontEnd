@@ -1,21 +1,17 @@
 import React from "react";
-import NavBar from '../Components/NavBar';
+import NavBar from '../Components/Navbar/NavBar';
 import Footer from "../Components/Footer";
+import MLayout from "../Components/MLayout";
+import isAuth from "../Components/Auth/isAuth";
 
-export default function Home() {
+export default isAuth(({session}) => {
     return (
         <>
-            <div id="page-container">
-                <NavBar/>
-
-
-                <main className="mainBg" id="content-wrap">
-
+            <MLayout isAuth={session}>
+                <main className="text-center mt-3">
+                    Home
                 </main>
-
-
-                <Footer/>
-            </div>
+            </MLayout>
         </>
     )
-}
+});
