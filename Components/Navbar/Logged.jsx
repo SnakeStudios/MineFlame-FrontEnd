@@ -1,13 +1,13 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
-import {AccountCircle, Notifications} from '@material-ui/icons/';
+import { AccountCircle, Notifications } from '@material-ui/icons/';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Link2 from "next/link";
 
-export default function Logged({isAuth}) {
+export default function Logged({ isAuth }) {
 
-    const {session} = isAuth;
+    const { session } = isAuth;
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [notifyAnchorEl, setNotifyAnchorEl] = React.useState(null);
     const isMenuOpen = Boolean(anchorEl);
@@ -37,7 +37,7 @@ export default function Logged({isAuth}) {
                 aria-haspopup="true"
                 color="inherit"
             >
-                <Notifications/>
+                <Notifications />
             </IconButton>
             <IconButton
                 aria-label="account of current user"
@@ -47,7 +47,7 @@ export default function Logged({isAuth}) {
                 color="inherit"
                 edge={false}
             >
-                <AccountCircle/>
+                <AccountCircle />
             </IconButton>
 
 
@@ -61,7 +61,7 @@ export default function Logged({isAuth}) {
                     horizontal: 'right',
                 }}
             >
-                <Link2 href={"/profile/myprofile"} passHref>
+                <Link2 href={"/profile/" + session.username} passHref>
                     <MenuItem>My Profile</MenuItem>
                 </Link2>
                 <Link2 href={"/account"} passHref>
