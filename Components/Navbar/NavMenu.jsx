@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
 import {Drawer, Divider, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 import {
-    Home, Receipt, Close, LocalOffer, Forum, Help, Email, NavigateBefore
+    Home, Forum, Help, NavigateBefore
 } from '@material-ui/icons';
 import Link from "next/link";
-
-
-let test = {
-    width: "800px",
-}
+import { Discord } from 'mdi-material-ui'
 
 export default class NavMenu extends Component {
 
@@ -54,7 +50,7 @@ export default class NavMenu extends Component {
                             <Link href={"/api/redirects/discord"} passHref>
                                 <ListItem button>
                                     <ListItemIcon>
-                                        <img src="images/discord-logo.svg" height="28px"/>
+                                        <Discord/>
                                     </ListItemIcon>
                                     <ListItemText primary={"DISCORD"}/>
                                 </ListItem>

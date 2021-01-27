@@ -9,7 +9,6 @@ import Cookies from 'universal-cookie';
 const checkUserAuthentication = (cookieString) => {
     const cookies = new Cookies(cookieString);
     let session = cookies.get("session");
-    console.log(session)
     return {session: session, debug: true};
 
 };
@@ -24,7 +23,7 @@ export default function isAuth(WrappedComponent) {
             return {...wrappedProps, isAuth};
         }
 
-        console.log("isAuth:", isAuth)
+        // console.log("isAuth:", isAuth)
 
         return {session: isAuth};
     };

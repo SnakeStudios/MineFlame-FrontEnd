@@ -1,8 +1,7 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import { AccountCircle, Notifications } from '@material-ui/icons/';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
+import { MenuItem, Menu, Badge } from '@material-ui/core/';
 import Link2 from "next/link";
 
 export default function Logged({ isAuth }) {
@@ -26,7 +25,7 @@ export default function Logged({ isAuth }) {
         setNotifyAnchorEl(null);
     };
 
-    console.log("Logged Navbar", isAuth)
+    // console.log("Logged Navbar", isAuth)
     return (
         <div>
 
@@ -37,7 +36,9 @@ export default function Logged({ isAuth }) {
                 aria-haspopup="true"
                 color="inherit"
             >
-                <Notifications />
+                <Badge color="secondary" badgeContent={1}>
+                    <Notifications />
+                </Badge>
             </IconButton>
             <IconButton
                 aria-label="account of current user"
@@ -58,11 +59,12 @@ export default function Logged({ isAuth }) {
                 onClose={handleMenuClose}
                 keepMounted
                 transformOrigin={{
-                    horizontal: 'right',
+                    vertical: 'center',
+                    horizontal: 'right'
                 }}
             >
-                <Link2 href={"/profile/" + session.username} passHref>
-                    <MenuItem>My Profile</MenuItem>
+                <Link2 href={`/profile/${session.username}`} passHref>
+                    <MenuItem >My Profile</MenuItem>
                 </Link2>
                 <Link2 href={"/account"} passHref>
                     <MenuItem>Settings</MenuItem>
@@ -79,12 +81,11 @@ export default function Logged({ isAuth }) {
                 onClose={handleMenuClose}
                 keepMounted
                 transformOrigin={{
-                    horizontal: 'right',
+                    vertical: 'center',
+                    horizontal: 'right'
                 }}
             >
-                <Link2 href={"/account"} passHref>
-                    <MenuItem>Logout</MenuItem>
-                </Link2>
+                <div>AAAAAAA</div>
             </Menu>
         </div>
     );

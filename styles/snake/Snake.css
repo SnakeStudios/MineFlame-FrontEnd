@@ -94,4 +94,5 @@
 
 .hr {
     background-color: var(--navShadowColor);
+    color: var(--navShadowColor)
 }

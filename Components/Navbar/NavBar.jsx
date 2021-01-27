@@ -21,7 +21,7 @@ export default function NavBar({isAuth}) {
         });
     };
 
-    console.log("[NavBar] isAuth:", isAuth)
+    // console.log("[NavBar] isAuth:", isAuth)
 
     return (
         <>
